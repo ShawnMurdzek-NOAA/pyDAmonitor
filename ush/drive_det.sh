@@ -40,8 +40,6 @@ ln -snf ${PYDAMONITOR}/scripts/obs_count_timeseries.py .
 # plot OmA and OmB histograms and save in a subdirectory
 ln -snf ${PYDAMONITOR}/scripts/plot_jedi_conv_omf_histograms.py .
 ./plot_jedi_conv_omf_histograms.py --path . --verbose false
-mkdir omf
-mv *omf_stats.csv omf/
 #
 # prep files for web
 ln -snf ${PYDAMONITOR}/ush/prep_web_det.sh .
