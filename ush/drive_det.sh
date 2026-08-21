@@ -37,6 +37,12 @@ ln -snf ${PYDAMONITOR}/scripts/costgrad_descent.py .
 ln -snf ${PYDAMONITOR}/scripts/obs_count_timeseries.py .
 ./obs_count_timeseries.py ${CDATE} 10  # plot 10 days of obs counts
 #
+# plot OmA and OmB histograms and save in a subdirectory
+ln -snf ${PYDAMONITOR}/scripts/plot_jedi_conv_omf_histograms.py .
+./plot_jedi_conv_omf_histograms.py --path . --verbose false
+mkdir omf
+mv *omf_stats.csv omf/
+#
 # prep files for web
 ln -snf ${PYDAMONITOR}/ush/prep_web_det.sh .
 ./prep_web_det.sh
