@@ -98,12 +98,18 @@ if __name__ == '__main__':
     # JEDI obs
     dateBgn, tseries = read_omf_stats(CDATE, lookback_hours)
     daterange = datetime.strftime(dateBgn, "%Y%m%dT%H") + f'-{CDATE[0:8]}T{CDATE[8:]}'
+    #
     plot_tseries(tseries, group='adpsfc_t', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_t.png')
     plot_tseries(tseries, group='adpsfc_q', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_q.png')
     plot_tseries(tseries, group='adpsfc_u', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_u.png')
     plot_tseries(tseries, group='adpsfc_v', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_v.png')
     plot_tseries(tseries, group='adpsfc_ps', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_ps.png')
     #
+    plot_tseries(tseries, group='sfcshp_t', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp_t.png')
+    plot_tseries(tseries, group='sfcshp_q', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp_q.png')
+    plot_tseries(tseries, group='sfcshp_u', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp_u.png')
+    plot_tseries(tseries, group='sfcshp_v', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp_v.png')
+    plot_tseries(tseries, group='sfcshp_ps', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp_ps.png')
+    #
     plot_tseries(tseries, group='adpupa', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpupa.png')
     plot_tseries(tseries, group='aircar', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircar.png')
-    plot_tseries(tseries, group='sfcshp', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_sfcshp.png')
