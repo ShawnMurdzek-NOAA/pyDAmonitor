@@ -6,8 +6,6 @@ import os
 from datetime import datetime, timedelta, timezone
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 
 from obs_count_timeseries import plot_tseries
 
@@ -79,6 +77,7 @@ def read_omf_stats(CDATE, lookback_hours):
                         tseries[obs][v][i] = row[v].values[0]
     # ~~~~~~~~~~~~~~~~~~
     return dateBgn, tseries
+
 
 #
 # ***********************************************************************
