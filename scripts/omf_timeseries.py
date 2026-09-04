@@ -13,14 +13,14 @@ from obs_count_timeseries import plot_tseries
 observers = [
     # adpsfc ----
     'adpsfc_t181', 'adpsfc_t183', 'adpsfc_t187', 'adpsfc_q181', 'adpsfc_q183', 'adpsfc_q187',
-    'adpsfc_ps181', 'adpsfc_ps187', 'adpsfc_uv281', 'adpsfc_uv284', 'adpsfc_uv287',
+    'adpsfc_ps181', 'adpsfc_ps187', 'adpsfc_u281', 'adpsfc_v281', 'adpsfc_u284', 'adpsfc_v284', 'adpsfc_u287', 'adpsfc_v287',
     # adpupa ----
-    'adpupa_t120', 'adpupa_q120', 'adpupa_ps120', 'adpupa_uv220',
+    'adpupa_t120', 'adpupa_q120', 'adpupa_ps120', 'adpupa_u220', 'adpupa_v220',
     # aircar ----
-    'aircar_t133', 'aircar_q133', 'aircar_uv233',
+    'aircar_t133', 'aircar_q133', 'aircar_u233', 'aircar_v233',
     # sfcshp ----
     'sfcshp_t180', 'sfcshp_t183', 'sfcshp_q180', 'sfcshp_q183',
-    'sfcshp_ps180', 'sfcshp_uv280', 'sfcshp_uv282', 'sfcshp_uv284',
+    'sfcshp_ps180', 'sfcshp_u280', 'sfcshp_v280', 'sfcshp_u282', 'sfcshp_v282', 'sfcshp_u284', 'sfcshp_v284',
 ]
 plot_vars = ['omb_mean', 'omb_std', 'oma_mean', 'oma_std']
 
@@ -69,7 +69,7 @@ def read_omf_stats(CDATE, lookback_hours):
             csv_out = pd.read_csv(mypath)
             # extract fields from CSV
             for obs in tseries:
-                var = obs.split('_')[-1][0]
+                var = obs.split('_')[-1][:-3]
                 typ = int(obs.split('_')[-1][-3:])
                 row = csv_out.loc[(csv_out['var'] == var) & (csv_out['type'] == typ)]
                 if len(row) == 1:
@@ -100,7 +100,8 @@ if __name__ == '__main__':
     daterange = datetime.strftime(dateBgn, "%Y%m%dT%H") + f'-{CDATE[0:8]}T{CDATE[8:]}'
     plot_tseries(tseries, group='adpsfc_t', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_t.png')
     plot_tseries(tseries, group='adpsfc_q', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_q.png')
-    plot_tseries(tseries, group='adpsfc_uv', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_uv.png')
+    plot_tseries(tseries, group='adpsfc_u', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_u.png')
+    plot_tseries(tseries, group='adpsfc_v', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_v.png')
     plot_tseries(tseries, group='adpsfc_ps', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpsfc_ps.png')
     #
     plot_tseries(tseries, group='adpupa', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpupa.png')
