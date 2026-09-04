@@ -97,7 +97,7 @@ if __name__ == '__main__':
     lookback_hours = int(MAX_DAYS) * 24  # days * 24 hours
     #
     # JEDI obs
-    dateBgn, tseries = read_omf_statss(CDATE, lookback_hours)
+    dateBgn, tseries = read_omf_stats(CDATE, lookback_hours)
     daterange = datetime.strftime(dateBgn, "%Y%m%dT%H") + f'-{CDATE[0:8]}T{CDATE[8:]}'
     plot_tseries(tseries, group='adpsfc_t', start_time=dateBgn, daterange=daterange, output_file='omf_stats_tseries_adpsfc_t.png')
     plot_tseries(tseries, group='adpsfc_q', start_time=dateBgn, daterange=daterange, output_file='omf_stats_tseries_adpsfc_q.png')
