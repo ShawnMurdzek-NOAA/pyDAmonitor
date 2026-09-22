@@ -1,6 +1,14 @@
 #!/usr/bin/env python
-# compute the summary in the past 7 days, 30 days
-#
+"""
+Usage: omf_timeseries.py <cycle date> <number of look back days> 
+
+This script plots timeseries of O-A and O-B statistics using CSV files created by 
+plot_jedi_conv_omf_histograms.py
+
+Author: Shawn Murdzek
+Date: 21 August 2026
+"""
+
 import sys
 import os
 from datetime import datetime, timedelta, timezone
