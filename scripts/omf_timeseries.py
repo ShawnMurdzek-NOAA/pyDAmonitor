@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-Usage: omf_timeseries.py <cycle date> <number of look back days> 
+Usage: omf_timeseries.py <cycle date> <number of look back days>
 
-This script plots timeseries of O-A and O-B statistics using CSV files created by 
+This script plots timeseries of O-A and O-B statistics using CSV files created by
 plot_jedi_conv_omf_histograms.py
 
 Author: Shawn Murdzek
