@@ -182,7 +182,7 @@ def plot_tseries(tseries, group, start_time, daterange, source='jedi', output_fi
         linestyles = ['-', '--', '-', '--']
         ttl = 'OmF statistics'
     else:
-        raise ValueError(f"{source} is not a valid source option")
+        print(f"WARNING: {source} is not a valid source option")
 
     # --- build time axis ---
     first_obs = subtypes[0]

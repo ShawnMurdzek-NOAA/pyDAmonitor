@@ -56,14 +56,15 @@ def read_omf_stats(CDATE, lookback_hours):
         obs: {key: [np.nan] * (lookback_hours + 1) for key in plot_vars} for obs in observers
     }
     #
+    monitor_dir = 'pyDAmonitor_spinup' if os.getenv('DO_SPINUP', 'FALSE') == 'TRUE' else 'pyDAmonitor'
     # Loop over each cycle
     for i in range(lookback_hours+1):
         dateCur = dateBgn + timedelta(hours=i)
         PDY = datetime.strftime(dateCur, "%Y%m%d")
         cyc = datetime.strftime(dateCur, "%H")
-        mypath = f'{MY_COM_BASE}/{RUN}.{PDY}/{cyc}/pyDAmonitor/{WGF}/jedi_conv_omf_stats.csv'
+        mypath = f'{MY_COM_BASE}/{RUN}.{PDY}/{cyc}/{monitor_dir}/{WGF}/jedi_conv_omf_stats.csv'
         if not os.path.exists(mypath):
-            mypath = f'{MY_COM_BASE}/{RUN}.{PDY}/{cyc}/pyDAmonitor/{WGF}/web/jedi_conv_omf_stats.csv'
+            mypath = f'{MY_COM_BASE}/{RUN}.{PDY}/{cyc}/{monitor_dir}/{WGF}/web/jedi_conv_omf_stats.csv'
         if os.path.exists(mypath):
             # read contents using pandas
             csv_out = pd.read_csv(mypath)
