@@ -27,10 +27,10 @@ observers = [
     # aircar ----
     'aircar_t133', 'aircar_q133', 'aircar_u233', 'aircar_v233',
     # aircft ----
-    'aircft_t130', 'aircft_uv230',
-    'aircft_t131', 'aircft_uv231',
-    'aircft_t134', 'aircft_q134', 'aircft_uv234',
-    'aircft_t135', 'aircft_q135', 'aircft_uv235',
+    'aircft_t130', 'aircft_u230', 'aircft_v230',
+    'aircft_t131', 'aircft_u231', 'aircft_v231',
+    'aircft_t134', 'aircft_q134', 'aircft_u234', 'aircft_v234',
+    'aircft_t135', 'aircft_q135', 'aircft_u235', 'aircft_v235',
     # sfcshp ----
     'sfcshp_t180', 'sfcshp_t183', 'sfcshp_q180', 'sfcshp_q183',
     'sfcshp_ps180', 'sfcshp_u280', 'sfcshp_v280', 'sfcshp_u282', 'sfcshp_v282', 'sfcshp_u284', 'sfcshp_v284',
@@ -128,5 +128,6 @@ if __name__ == '__main__':
     plot_tseries(tseries, group='adpupa', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_adpupa.png')
     plot_tseries(tseries, group='aircft_t', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircft_t.png')
     plot_tseries(tseries, group='aircft_q', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircft_q.png')
-    plot_tseries(tseries, group='aircft_uv', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircft_uv.png')
+    plot_tseries(tseries, group='aircft_u', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircft_u.png')
+    plot_tseries(tseries, group='aircft_v', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircft_v.png')
     plot_tseries(tseries, group='aircar', start_time=dateBgn, daterange=daterange, source='omf', output_file='omf_stats_tseries_aircar.png')
