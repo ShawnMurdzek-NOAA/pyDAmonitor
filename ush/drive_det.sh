@@ -43,6 +43,16 @@ ln -snf ${PYDAMONITOR}/scripts/omf_timeseries.py .
 ./plot_jedi_conv_omf_histograms.py --path . --verbose false
 ./omf_timeseries.py ${CDATE} 10
 #
+# prep for data impact
+ln -snf ${PYDAMONITOR}/scripts/data_impact_conv.py .
+ln -snf ${PYDAMONITOR}/scripts/data_impact_sat.py .
+ln -snf ${PYDAMONITOR}/scripts/data_impact_functions.py .
+./data_impact_conv.py ${CDATE} 
+./data_impact_sat.py ${CDATE} 
+
+ln -snf ${PYDAMONITOR}/ush/prep_data_impact_det.sh .
+./prep_data_impact_det.sh
+# 
 # prep files for web
 ln -snf ${PYDAMONITOR}/ush/prep_web_det.sh .
 ./prep_web_det.sh
