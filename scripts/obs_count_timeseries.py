@@ -18,6 +18,11 @@ observers = [
     'adpupa_t120', 'adpupa_q120', 'adpupa_ps120', 'adpupa_uv220',
     # aircar ----
     'aircar_t133', 'aircar_q133', 'aircar_uv233',
+    # aircft ----
+    'aircft_t130', 'aircft_uv230',
+    'aircft_t131', 'aircft_uv231',
+    'aircft_t134', 'aircft_q134', 'aircft_uv234',
+    'aircft_t135', 'aircft_q135', 'aircft_uv235',
     # sfcshp ----
     'sfcshp_t180', 'sfcshp_t183', 'sfcshp_q180', 'sfcshp_q183',
     'sfcshp_ps180', 'sfcshp_uv280', 'sfcshp_uv282', 'sfcshp_uv284',
@@ -225,7 +230,7 @@ def plot_tseries(tseries, group, start_time, daterange, source='jedi', output_fi
     fig.tight_layout()
 
     if output_file:
-        fig.savefig(output_file, dpi=150, bbox_inches='tight')
+        fig.savefig(output_file, dpi=400, bbox_inches='tight')
         print(f"Saved → {output_file}")
     else:
         plt.show()
@@ -259,6 +264,9 @@ if __name__ == '__main__':
     #
     plot_tseries(tseries, group='adpupa', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_adpupa.png')
     plot_tseries(tseries, group='aircar', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_aircar.png')
+    plot_tseries(tseries, group='aircft_t', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_aircft_t.png')
+    plot_tseries(tseries, group='aircft_q', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_aircft_q.png')
+    plot_tseries(tseries, group='aircft_uv', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_aircft_uv.png')
     plot_tseries(tseries, group='sfcshp', start_time=dateBgn, daterange=daterange, output_file='obs_count_tseries_sfcshp.png')
     #
     # print(tseries['aircar_t133']['nobs_r'])  # for debugging only
